@@ -23,7 +23,7 @@ input.addEventListener("keyup", function (event) {
   });
 
 function buscarPelicula(pelicula) {
-    fetch(`http://www.omdbapi.com/?t=${pelicula}&apikey=${API_KEY}&`)
+    fetch(`https://www.omdbapi.com/?t=${pelicula}&apikey=${API_KEY}&`)
     .then(function(response){
         return response.json();
     })
