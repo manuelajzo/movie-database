@@ -9,12 +9,12 @@
 
 body {
     background-color: #0D1B2A;
-    color: ghostwhite;
+    color: #778da9;
 }
 
 h1 {
     margin: auto;
-    padding: 0.5em;
+    padding: 2.5em;
 }
 
 .spinner-border {
@@ -22,11 +22,29 @@ h1 {
     margin: auto;
 }
 
+.nav-bar {
+    background-color: #1b263b !important;
+    width: 100%;
+}
+
+
+#divContenedor button {
+    margin-bottom: 1em;
+}
+
+#divContenedor p{
+    margin-top: 0.5em;
+}
+
+.btn-success{
+    margin-right: 1em;
+}
+
 
 input{
     background: transparent;
     border: none;
-    border-bottom: 2px solid darkcyan;
+    border-bottom: 2px solid #415a77;
     width: 100%;
     padding: 0.5em;
     margin: 1em;
@@ -35,7 +53,7 @@ input{
 input:focus {
     outline: none;
     background: transparent;
-    border-bottom: 2px solid deeppink;
+    border-bottom: 2px solid #778da9;
 }
 
 select {
@@ -45,43 +63,100 @@ select {
 
 
 #botonBuscar {
-    background-color: darkcyan;
-    border-color: darkcyan;
-    color: white;
+    background-color: #415a77;
+    border-color: #415a77;
+    color: #e0e1dd;
     width: 30%;
     margin: auto;
 }
 
 #botonBuscar:hover {
-    background-color: mediumturquoise;
-    color: white;
-    border-color: mediumturquoise;
+    background-color: #778da9;
+    color: #e0e1dd;
+    border-color: #778da9;
 }
 
 h2 {
     text-align: center;
-    height: 4em;
-    padding-top: 2em;
+    padding-top: 0.5em;
     font-size: 3em;
     font-weight: bold;
 }
 
-.temperatura {
-    font-size: 2em;
+#divContenedor {
+    background-color: #1b263b;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    margin-top: 3em;
+    border-radius: 3px;
+    box-shadow: 10px 15px #415a77;
+}
+
+.divContenedor {
+    background-color: #1b263b;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    margin-top: 3em;
+    border-radius: 3px;
+    box-shadow: 10px 15px #415a77;
+}
+
+#divContenedor img {
+    width: fit-content;
+}
+
+.divContenedor img {
+    width: fit-content;
+}
+
+.divContenedor p {
     text-align: center;
 }
 
-#divContenedor {
-    width: 50%;
+#status {
+    text-align: center;
+}
+
+#resultados {
+    visibility: hidden;
+}
+
+#resultados p{
+    text-align: center;
+    margin-top: 2em;
+}
+
+#listaPelis h2{
+    text-align: center;
+    margin-top: 5em;
+}
+
+.card-trailer {
+    background-color: #1b263b;
+    text-align: center;
     display: inline-block;
+    margin-top: 3em;
+    border-radius: 3px;
+    box-shadow: 10px 15px #415a77;
 }
 
-
-#detallesClima {
-    width: 49%;
-    display: inline-block;    
-}
-
-#container {
-    margin-bottom: 5em;
-}
+.video {
+    position: relative;
+    padding-bottom: 50%;
+    padding-top: 5em;
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    }
+    
+    .video iframe,
+    .video object,
+    .video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }

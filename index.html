@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-top">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-transparent" id="navbar-top">
             <a class="navbar-brand" href="#">Manu's Movie Database</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,18 +37,14 @@
     <main>
         <section class="container">
             <div class="row" id="container">
-                <h1>Nesflis</h1>
+                <h1>Buscá una serie o película</h1>
                 <div>
-                    <input type="text" name="inputBuscar" id="inputBuscar" placeholder="Buscar una serie o película" value="">
+                    <input type="text" name="inputBuscar" id="inputBuscar" placeholder="Ingrese el título" value="">
                     </select>
                 </div>
                 <button type="submit" id="botonBuscar" class="btn">Buscar</button>
             </div>
-            <div class="row justify-content-center" id="auxiliar">   </div>
         </section>
-        
-        <div id="resultados" class="text-center"><p>No se encontraron resultados.</p></div>
-
         <section>
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-light" role="status">
@@ -56,6 +52,12 @@
                 </div>
               </div>
         </section>
+        
+        <div class="row justify-content-center" id="auxiliar">   </div>
+        
+        <div id="resultados"><p>No se encontraron resultados.</p></div>
+
+        
 
         <section>
             <div id="status"></div>

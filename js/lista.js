@@ -1,13 +1,16 @@
+var favoritas = JSON.parse(localStorage.getItem("favoritas"));
+
 window.onload = function () {
-    mostrarLista();
+    if (favoritas != null){
+        mostrarLista();
+    }
 };
 
-var favoritas = JSON.parse(localStorage.getItem("favoritas"));
 
 if (favoritas == null) {
     let divFav = document.getElementById("listaPelis");
     divFav.setAttribute("class", "text-center");
-    divFav.innerHTML = `Todavía no agregaste ningún elemento a la lista.`;
+    divFav.innerHTML = `<h2>Todavía no agregaste ningún elemento a la lista.</h2>`;
 }
 
 function mostrarLista () {
@@ -20,17 +23,18 @@ function mostrarLista () {
 
             let container = document.getElementById("auxiliar");
             let divContenedor = document.createElement("div");
-            divContenedor.setAttribute("class", "divContenedor card");
+            divContenedor.setAttribute("class", "divContenedor");
             divContenedor.setAttribute("id", pelicula.imdbID);
 
-            let posterPelicula = document.createElement("img");
-            posterPelicula.setAttribute("class", "card-img-top");
-            posterPelicula.src = pelicula.Poster;
-
+            
             let nombrePelicula = document.createElement("h2");
             nombrePelicula.setAttribute("id", "h2");
             nombrePelicula.innerHTML = `${pelicula.Title}`;
-
+            
+            let posterPelicula = document.createElement("img");
+            posterPelicula.setAttribute("class", "card-img-top");
+            posterPelicula.src = pelicula.Poster;
+            
             let sinopsisPelicula = document.createElement("p");
             sinopsisPelicula.setAttribute("class", "card-text");
             sinopsisPelicula.innerHTML = `Sinopsis: ${pelicula.Plot}`;
