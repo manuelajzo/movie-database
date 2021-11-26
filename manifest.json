@@ -1,7 +1,16 @@
 {
-    "theme_color": "#9dcbf0",
-    "background_color": "#10283b",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/"
-  }
+  "theme_color": "#1B263B",
+  "background_color": "#0D1B2A",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/index.html",
+  "name": "Buscador de películas",
+  "short_name": "mmdb",
+  "description": "Buscador de series y películas",
+  "icons": [{
+          "src": "favicon.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ]
+}
