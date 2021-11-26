@@ -4,7 +4,7 @@
   "theme_color": "#1b263b",
   "background_color": "#0d1b2a",
   "display": "browser",
-  "orientation": "",
+  "orientation": "fullscreen",
   "scope": "/",
   "start_url": "index.html",
   "icons": [
