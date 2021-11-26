@@ -6,38 +6,81 @@ var favoritas = JSON.parse(localStorage.getItem("favoritas"));
 
 const dataLocalStorage = JSON.parse(localStorage.getItem("dataGuardada"));
 
+var statusDiv = document.getElementById("status");
+
+var spinner = document.querySelector(".spinner-border");
+			
+window.addEventListener('load', function(e) {
+    if (navigator.onLine) {
+        statusDiv.innerHTML = "User is online";
+        statusDiv.classList.add("success");
+    } else {
+        statusDiv.innerHTML = "User is offline";
+        statusDiv.classList.remove("success");
+        statusDiv.classList.add("error");
+        }
+    }, false);
+            
+window.addEventListener('online', function(e) {
+    statusDiv.innerHTML = "User is back online";
+    statusDiv.classList.remove("error");
+    statusDiv.classList.add("success");
+}, false);
+            
+window.addEventListener('offline', function(e) {
+    statusDiv.innerHTML = "User went offline";
+    statusDiv.classList.remove("success");
+    statusDiv.classList.add("error");
+}, false);
+
 if (dataLocalStorage != null) {
     cardPelicula(dataLocalStorage);
 } 
 
 
 button.addEventListener("click", () => {
+    spinner.style.visibility = "visible";
     buscarPelicula(input.value);
 });
 
 input.addEventListener("keyup", function (event) {  
     if(event.code == "Enter") {
       event.preventDefault();
+      spinner.style.visibility = "visible";
       buscarPelicula(input.value);
     }   
   });
 
 function buscarPelicula(pelicula) {
+    let divAux = document.getElementById("resultados");
     fetch(`https://www.omdbapi.com/?t=${pelicula}&apikey=${API_KEY}&`)
     .then(function(response){
-        return response.json();
+        return response.json();        
     })
     .then(function(respuestaParseada){
-        console.log(respuestaParseada);
-        guardarData(respuestaParseada);
-        if (document.querySelector("#divContenedor")) {
-            document.querySelector("#divContenedor").remove();
+        if (respuestaParseada.Response == 'False') {
+            borrarElemento();
+            divAux.style.visibility = "visible";
+            spinner.style.visibility = "hidden";
+            return;
         }
-        cardPelicula(respuestaParseada);
+        console.log(respuestaParseada);
+        borrarElemento();
+        guardarData(respuestaParseada);        
+        spinner.style.visibility = "hidden";
+        divAux.style.visibility = "hidden";
+        cardPelicula(respuestaParseada);        
     })
     .catch(function(error) {
-        console.log('Hubo un problema con la petición Fetch:' + error.message);
+        spinner.style.visibility = "hidden";        
+        divAux.style.visibility = "visible";
       });
+}
+
+function borrarElemento() {
+    if (document.querySelector("#divContenedor")) {
+        document.querySelector("#divContenedor").remove();
+    }
 }
 
 function guardarData (data){
@@ -71,7 +114,7 @@ function cardPelicula (nombre) {
 
     let ratingPelicula = document.createElement("p");
     ratingPelicula.setAttribute("class", "card-text");
-    ratingPelicula.innerHTML = `Calificación: ${nombre.Ratings[1].Value}`;
+    ratingPelicula.innerHTML = `Calificación: ${nombre.Ratings[0].Value}`;
 
     let agregarBotonFav = crearBotonAgregar(nombre);
     let agregarBotonQuitar = crearBotonQuitar(nombre);
@@ -132,3 +175,5 @@ function agregarFav(pelicula) {
         localStorage.setItem("favoritas", JSON.stringify(favoritas));
     }
 }
+
+
